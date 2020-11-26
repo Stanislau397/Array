@@ -12,7 +12,7 @@ public class FindServiceTest {
 
     FindService findService;
     FileScanner fileScanner;
-    static final String PATH = "src\\main\\java\\edu\\epam\\partA\\file\\Integers";
+    static final String PATH = "file.txt";
 
     @BeforeTest
     public void setUp() {
