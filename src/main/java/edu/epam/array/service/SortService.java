@@ -7,64 +7,64 @@ import edu.epam.array.service.api.ICompareArrays;
 public class SortService {
 
     public int[] bubbleSortedArray(NumberArray array) {
-        int[] bubbleSortedArray = array.getNumbers();
+        int[] bubbleArray = array.getNumbers();
 
-        for (int i = 0; i < bubbleSortedArray.length - 1; i++) {
-            for (int j = 0; j < bubbleSortedArray.length - i - 1; j++) {
+        for (int i = 0; i < bubbleArray.length - 1; i++) {
+            for (int j = 0; j < bubbleArray.length - i - 1; j++) {
 
-                if (bubbleSortedArray[j] > bubbleSortedArray[j + 1]) {
+                if (bubbleArray[j] > bubbleArray[j + 1]) {
 
-                    int temp = bubbleSortedArray[j];
-                    bubbleSortedArray[j] = bubbleSortedArray[j + 1];
-                    bubbleSortedArray[j + 1] = temp;
+                    int temp = bubbleArray[j];
+                    bubbleArray[j] = bubbleArray[j + 1];
+                    bubbleArray[j + 1] = temp;
                 }
             }
         }
-        return bubbleSortedArray;
+        return bubbleArray;
     }
 
     public int[] selectionSortedArray(NumberArray numbers) {
-        int[] selectionSortedArray = numbers.getNumbers();
+        int[] selectionArray = numbers.getNumbers();
 
-        for (int i = 0; i < selectionSortedArray.length; i++) {
+        for (int i = 0; i < selectionArray.length; i++) {
 
-            int min = selectionSortedArray[i];
+            int min = selectionArray[i];
             int minId = i;
 
-            for (int j = i; j < selectionSortedArray.length; j++) {
+            for (int j = i; j < selectionArray.length; j++) {
 
-                if (selectionSortedArray[j] < min) {
-                    min = selectionSortedArray[j];
+                if (selectionArray[j] < min) {
+                    min = selectionArray[j];
                     minId = j;
                 }
             }
-            if (min < selectionSortedArray[i]) {
-                int temp = selectionSortedArray[i];
-                selectionSortedArray[i] = selectionSortedArray[minId];
-                selectionSortedArray[minId] = temp;
+            if (min < selectionArray[i]) {
+                int temp = selectionArray[i];
+                selectionArray[i] = selectionArray[minId];
+                selectionArray[minId] = temp;
             }
         }
 
-        return selectionSortedArray;
+        return selectionArray;
     }
 
     public int[] insertionSortedArray(NumberArray numbers) {
-        int[] insertionSortedArray = numbers.getNumbers();
+        int[] insertionArray = numbers.getNumbers();
 
-        for (int i = 1; i < insertionSortedArray.length; i++) {
+        for (int i = 1; i < insertionArray.length; i++) {
 
-            int current = insertionSortedArray[i];
+            int current = insertionArray[i];
             int j = i - 1;
 
-            while (j >= 0 && current < insertionSortedArray[j]) {
-                insertionSortedArray[j + 1] = insertionSortedArray[j];
+            while (j >= 0 && current < insertionArray[j]) {
+                insertionArray[j + 1] = insertionArray[j];
                 j = j - 1;
             }
 
-            insertionSortedArray[j + 1] = current;
+            insertionArray[j + 1] = current;
         }
 
-        return insertionSortedArray;
+        return insertionArray;
     }
 
     public int[][] sortJaggedArrayInAscendingOrder(NumberJaggedArray numberJaggedArray, SwapService swapService, ICompareArrays iCompare) {
@@ -85,7 +85,7 @@ public class SortService {
 
         for (int i = 0; i < jaggedArray.length; i++) {
             for (int j = 0; j < jaggedArray.length; j++) {
-                if (iCompare.compare(jaggedArray[i],jaggedArray[j]) > 0) {
+                if (iCompare.compare(jaggedArray[i], jaggedArray[j]) > 0) {
                     swapService.swap(jaggedArray, i, j);
                 }
             }
